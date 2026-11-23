@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#121210">
+  <meta name="description" content="Enter Umbra Motion Studio's screening room. Watch three original cinematic studies, build a three-shot cut, and experiment with the color grade.">
+  <meta property="og:title" content="Umbra — Motion Studio">
+  <meta property="og:description" content="Three worlds in motion. An independent screening room and interactive darkroom.">
+  <meta property="og:image" content="https://samarpul.github.io/umbra-motion-studio/assets/stills/penumbra.webp">
+  <title>Umbra — Motion Studio</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="preload" as="font" href="assets/fonts/barlow-condensed-extra.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/stills/penumbra.webp" fetchpriority="high">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a href="#screening-room" class="skip">Skip to screening room</a>
+  <svg class="symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="mark" viewBox="0 0 48 48">
+      <g fill="none" stroke="currentColor" stroke-width="2.4" transform="rotate(-32 24 24)">
+        <ellipse cx="24" cy="24" rx="21" ry="15"/><ellipse cx="24" cy="24" rx="15" ry="15"/><ellipse cx="24" cy="24" rx="8.3" ry="15"/>
+      </g>
+    </symbol>
+    <symbol id="play" viewBox="0 0 20 20"><path fill="currentColor" d="M5 2.8 17 10 5 17.2z"/></symbol>
+    <symbol id="up-right" viewBox="0 0 24 24"><path d="M5 19 19 5M6 5h13v13"/></symbol>
+    <symbol id="next" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="down" viewBox="0 0 24 24"><path d="M12 3v17m-6-6 6 6 6-6"/></symbol>
+    <symbol id="close" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+    <symbol id="aperture" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 3 6 9m6-2H10m6 10-5-9M4 16l7-10"/></symbol>
+  </svg>
+  <header id="top">
+    <a class="brand" href="#top" aria-label="Umbra Motion Studio home">
+      <svg class="brand-mark" aria-hidden="true"><use href="#mark"/></svg>
+      <span class="wordmark">UMBRA</span>
+      <span class="brand-desc">MOTION<br>STUDIO</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#screening-room" aria-current="location">Screening room</a>
+      <a href="#film-index">Film index</a>
+      <a href="#darkroom">Darkroom</a>
+    </nav>
+    <button class="reel-button" type="button" data-play="reel"><svg class="icon fill"><use href="#play"/></svg>Studio reel</button>
+  </header>
+  <main>
+    <section class="hero" id="screening-room" aria-labelledby="feature-title" aria-roledescription="carousel">
+      <div class="hero-art" aria-hidden="true"><img id="feature-art" src="assets/stills/penumbra.webp" alt="" fetchpriority="high"></div>
+      <div class="hero-wash"></div>
+      <div class="hero-grain"></div>
+      <div class="hero-safe"><i></i><i></i><i></i><i></i></div>
+      <div class="hero-top mono"><span class="broadcast"><b class="dot"></b> Screening room</span><span class="format"><i class="scope-icon"></i> Scope &nbsp;/&nbsp; 2.35:1</span></div>
+      <div class="hero-bottom">
+        <div class="feature-copy" aria-live="polite" aria-atomic="true">
+          <div class="eyebrow hero-kicker"><span class="orange-rule"></span> Featured study <span class="slash">//</span> <span id="feature-number">001</span></div>
+          <h1 id="feature-title">PENUMBRA</h1>
+          <p id="feature-line">A lone traveler crosses a world caught in a permanent eclipse.</p>
+          <div class="hero-actions">
+            <button class="btn btn-hot" type="button" id="play-feature"><svg class="icon fill"><use href="#play"/></svg>Watch study</button>
+            <button class="notes-link" type="button" id="feature-notes">Film notes <svg class="icon"><use href="#up-right"/></svg></button>
+          </div>
+        </div>
+        <div class="feature-nav">
+          <div class="feature-nav-top mono"><span>On the reel</span><span><b id="counter">01</b> / 03</span></div>
+          <div class="mini-strip" id="mini-strip" aria-label="Featured studies"></div>
+        </div>
+      </div>
+    </section>
+    <div class="transport mono"><a href="#film-index"><svg class="icon"><use href="#down"/></svg> Scroll to explore</a><div class="ruler" aria-hidden="true"></div><span class="volume">Studio collection &nbsp;/&nbsp; Vol. 01</span></div>
+    <section id="film-index" class="section archive" aria-labelledby="archive-title">
+      <div class="section-head"><div><div class="eyebrow"><span class="square"></span> The archive</div><h2 id="archive-title">Film index<span>.</span></h2></div>
+      <div class="index-count mono"><span class="slats" aria-hidden="true">////</span> 03 motion studies</div></div>
+      <div class="film-grid" id="film-grid"></div>
+    </section>
+    <section id="darkroom" class="section darkroom" aria-labelledby="lab-title">
+      <div class="section-head"><div><div class="eyebrow"><span class="square"></span> Post-production</div><h2 id="lab-title">The darkroom<span>.</span></h2></div>
+      <p>Choose three frames, shape the color, and play your cut.</p></div>
+      <div class="lab-desk">
+        <div class="monitor">
+          <div class="monitor-image"><img id="monitor-img" loading="lazy" src="assets/stills/penumbra.webp" alt="The eclipse above a desert canyon"><canvas id="develop" aria-hidden="true" hidden></canvas></div>
+          <div class="monitor-line mono"><span><i class="dot"></i> Preview monitor</span><span id="monitor-code">Shot 01 / 03</span></div>
+        </div>
+        <div class="controls">
+          <div class="control-head"><svg class="icon"><use href="#aperture"/></svg><h3>Color grade</h3></div>
+          <div class="grade-options" aria-label="Color grade presets">
+            <button type="button" data-grade="print" aria-pressed="true">Print</button><button type="button" data-grade="silver" aria-pressed="false">Silver</button><button type="button" data-grade="bleach" aria-pressed="false">Bleach</button>
+          </div>
+          <label class="exposure-label mono" for="exposure">Exposure <output id="exposure-value" for="exposure">0.0 EV</output></label>
+          <input id="exposure" type="range" min="-10" max="10" value="0" aria-valuetext="0 EV">
+          <div class="control-divider"></div>
+          <button class="develop-button" id="new-frame" type="button">Develop another frame <svg class="icon"><use href="#next"/></svg></button>
+        </div>
+        <div class="sequence"><div class="sequence-top"><h3>Shot sequence</h3><span class="mono">3 shots &nbsp;/&nbsp; 6 seconds</span></div>
+          <div id="shots" class="shots"></div>
+          <div class="sequence-bottom"><span class="mono" id="sequence-status" role="status">Edit ready</span><button type="button" id="play-cut" class="btn btn-hot"><svg class="icon fill"><use href="#play"/></svg><span>Play cut</span></button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <a class="brand" href="#top" aria-label="Umbra Motion Studio, back to top"><svg class="brand-mark" aria-hidden="true"><use href="#mark"/></svg><span class="wordmark">UMBRA</span><span class="brand-desc">MOTION<br>STUDIO</span></a>
+    <a class="top-link mono" href="#top">Back to top <svg class="icon"><use href="#up-right"/></svg></a>
+  </footer>
+  <dialog id="viewer" aria-labelledby="viewer-title">
+    <div class="viewer-top"><span class="eyebrow"><span class="square"></span> Umbra screening room</span><button class="icon-button" type="button" id="close-viewer" aria-label="Close screening room"><svg class="icon"><use href="#close"/></svg></button></div>
+    <div id="viewer-content"></div>
+  </dialog>
+  <noscript><p class="no-script">Enable JavaScript to use the editor or <a href="assets/films/studio-reel.mp4">watch the studio reel</a>.</p></noscript>
+</body>
+</html>
