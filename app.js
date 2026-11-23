@@ -112,7 +112,10 @@ document.addEventListener("click", event => {
 one("#play-feature").addEventListener("click", () => openViewer(films[featured].id));
 one("#feature-notes").addEventListener("click", () => openViewer(films[featured].id, true));
 one("#close-viewer").addEventListener("click", () => viewer.close());
-viewer.addEventListener("close", clearViewer);
+viewer.addEventListener("close", () => {
+  // A queued close can arrive after the next screening has already opened.
+  if (!viewer.open) clearViewer();
+});
 viewer.addEventListener("click", event => {
   if (event.target !== viewer) return;
   const r = viewer.getBoundingClientRect();

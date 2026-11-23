@@ -4,6 +4,8 @@
 
 A static film portfolio inspired by [Distaste Studio’s walkthrough](https://www.youtube.com/watch?v=gf_l2e6PPAE). The three fictional worlds, studio identity, generated stills, motion studies, and synthesized ambient soundtracks were created for this project.
 
+![Umbra screening room and film index](assets/screening-room.jpg)
+
 ## Run locally
 
 Serve the repository root with any static server. For example:
